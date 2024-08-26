@@ -1,0 +1,19 @@
+apiVersion: karpenter.k8s.aws/v1
+zkind: EC2NodeClass
+metadata:
+  name: default
+spec:
+  amiFamily: Bottlerocket
+  amiSelectorTerms:
+    - id: "ami-02150f72c202ee9bb"
+  role: "KarpenterNodeRole-wsi-eks-cluster"
+  subnetSelectorTerms:
+    - tags:
+        qwer: qwer
+  securityGroupSelectorTerms:
+    - tags:
+        qwer: qwer
+  metadataOptions:
+    httpPutResponseHopLimit: 1
+  tags:
+    Name: wsi-app-node
